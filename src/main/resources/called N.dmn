@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<semantic:definitions xmlns:semantic="http://www.omg.org/spec/DMN/20151101/dmn.xsd" xmlns="http://www.trisotech.com/definitions/_d37ce953-8d88-4132-ab5f-56ebe6f3bc58" xmlns:feel="http://www.omg.org/spec/FEEL/20140401" xmlns:tc="http://www.omg.org/spec/DMN/20160719/testcase" xmlns:triso="http://www.trisotech.com/2015/triso/modeling" xmlns:trisofeed="http://trisotech.com/feed" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" exporter="DMN Modeler" exporterVersion="5.2.11.1" id="_d37ce953-8d88-4132-ab5f-56ebe6f3bc58" name="called N" namespace="http://www.trisotech.com/definitions/_d37ce953-8d88-4132-ab5f-56ebe6f3bc58" triso:logoChoice="Default">
+  <semantic:extensionElements/>
+  <semantic:inputData id="_96094d04-1dee-419f-a8fa-3e6dc033bb50" name="a number">
+    <semantic:variable id="_889da010-ba66-4ab5-89e5-5d5b5b23d287" name="a number" typeRef="feel:number"/>
+  </semantic:inputData>
+  <semantic:inputData id="_55f6e346-3b5d-41db-9de4-1b764713b558" name="xyz">
+    <semantic:variable id="_f583fcb1-a8c4-4180-9fc7-464683e24be8" name="xyz" typeRef="feel:string"/>
+  </semantic:inputData>
+  <semantic:decision id="_f6884950-d861-40b4-9a93-ca8ca45893a8" name="subdecision result">
+    <semantic:variable id="_e93cee74-58a0-4210-9e31-845a887c2230" name="subdecision result" typeRef="feel:string"/>
+    <semantic:informationRequirement>
+      <semantic:requiredInput href="#_96094d04-1dee-419f-a8fa-3e6dc033bb50"/>
+    </semantic:informationRequirement>
+    <semantic:informationRequirement>
+      <semantic:requiredInput href="#_55f6e346-3b5d-41db-9de4-1b764713b558"/>
+    </semantic:informationRequirement>
+    <semantic:literalExpression id="_21162e11-8008-42fb-827f-1fefc5019754">
+      <semantic:text>"I am a decision that depends on a number: " + string(a number) + " and xyz: " + xyz + " to conclude for another decision."</semantic:text>
+    </semantic:literalExpression>
+  </semantic:decision>
+</semantic:definitions>

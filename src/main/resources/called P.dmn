@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<semantic:definitions xmlns:semantic="http://www.omg.org/spec/DMN/20151101/dmn.xsd" xmlns="http://www.trisotech.com/definitions/_acd5c1b8-74b7-41f6-aae7-52dc19b657cf" xmlns:feel="http://www.omg.org/spec/FEEL/20140401" xmlns:tc="http://www.omg.org/spec/DMN/20160719/testcase" xmlns:triso="http://www.trisotech.com/2015/triso/modeling" xmlns:trisofeed="http://trisotech.com/feed" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" exporter="DMN Modeler" exporterVersion="5.2.11.1" id="_acd5c1b8-74b7-41f6-aae7-52dc19b657cf" name="called P" namespace="http://www.trisotech.com/definitions/_acd5c1b8-74b7-41f6-aae7-52dc19b657cf" triso:logoChoice="Default">
+  <semantic:extensionElements/>
+  <semantic:inputData id="_aae57005-7f4e-4e1c-8611-f5737c438ccf" name="abc">
+    <semantic:variable id="_bd35c225-ea05-4042-87fd-69f39b4048e4" name="abc" typeRef="feel:string"/>
+  </semantic:inputData>
+  <semantic:inputData id="_9426ff5e-7f21-4426-8fc2-57ee4a55689f" name="xyz">
+    <semantic:variable id="_e9d7a228-ce54-4ff4-9a6d-8556ee93ed14" name="xyz" typeRef="feel:string"/>
+  </semantic:inputData>
+  <semantic:decision id="_ffb6006c-7d1b-45c1-8151-d92eebf4f418" name="subdecision result">
+    <semantic:variable id="_aadf2cc3-1be3-4c3c-8ef2-71762b51592d" name="subdecision result" typeRef="feel:string"/>
+    <semantic:informationRequirement>
+      <semantic:requiredInput href="#_aae57005-7f4e-4e1c-8611-f5737c438ccf"/>
+    </semantic:informationRequirement>
+    <semantic:informationRequirement>
+      <semantic:requiredInput href="#_9426ff5e-7f21-4426-8fc2-57ee4a55689f"/>
+    </semantic:informationRequirement>
+    <semantic:literalExpression id="_6fa899d6-31e2-48f9-8d37-298b2a9babfa">
+      <semantic:text>"I am a model that depends on abc: "+abc+ " and xyz: " +xyz +" and I take a decision."</semantic:text>
+    </semantic:literalExpression>
+  </semantic:decision>
+</semantic:definitions>

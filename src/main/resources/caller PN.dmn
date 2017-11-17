@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<semantic:definitions xmlns:semantic="http://www.omg.org/spec/DMN/20151101/dmn.xsd" xmlns="http://www.trisotech.com/definitions/_337d15f6-09db-4d20-b49e-2ce272ac0f8b" xmlns:feel="http://www.omg.org/spec/FEEL/20140401" xmlns:tc="http://www.omg.org/spec/DMN/20160719/testcase" xmlns:triso="http://www.trisotech.com/2015/triso/modeling" xmlns:trisofeed="http://trisotech.com/feed" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" exporter="DMN Modeler" exporterVersion="5.2.11.1" id="_337d15f6-09db-4d20-b49e-2ce272ac0f8b" name="caller PN" namespace="http://www.trisotech.com/definitions/_337d15f6-09db-4d20-b49e-2ce272ac0f8b" triso:logoChoice="Default">
+  <semantic:extensionElements/>
+  <semantic:itemDefinition label="tWhichModel" name="tWhichModel">
+    <semantic:itemComponent id="_b612d24b-7833-4ffa-a42e-32e90790fd9a" name="ns">
+      <semantic:typeRef>feel:string</semantic:typeRef>
+    </semantic:itemComponent>
+    <semantic:itemComponent id="_db8e41d5-f8fc-436a-81bb-0af22039149e" name="name">
+      <semantic:typeRef>feel:string</semantic:typeRef>
+    </semantic:itemComponent>
+    <semantic:itemComponent id="_84002574-dc49-43b7-8ef1-a15004838700" name="decision">
+      <semantic:typeRef>feel:string</semantic:typeRef>
+    </semantic:itemComponent>
+  </semantic:itemDefinition>
+  <semantic:inputData id="_3d68ecf6-d1a6-4913-a3ae-bd2c8a86b24b" name="a number">
+    <semantic:variable id="_a40d6712-e047-4ad8-b18c-8bc94f7c55cc" name="a number" typeRef="feel:number"/>
+  </semantic:inputData>
+  <semantic:decision id="_5ccc3f7c-d602-4315-83b1-26ede8633fe4" name="positive or negative">
+    <semantic:variable id="_5925c071-1c8e-4ba1-9713-e370e03a9cbd" name="positive or negative" typeRef="feel:string"/>
+    <semantic:informationRequirement>
+      <semantic:requiredInput href="#_3d68ecf6-d1a6-4913-a3ae-bd2c8a86b24b"/>
+    </semantic:informationRequirement>
+    <semantic:decisionTable hitPolicy="UNIQUE" id="_5a009a1a-f36c-45f5-8ae4-af70413d1a5b" outputLabel="positive or negative">
+      <semantic:input id="_4397bbaf-16a8-4f4b-9d56-b89b80826fcb">
+        <semantic:inputExpression typeRef="feel:number">
+          <semantic:text>a number</semantic:text>
+        </semantic:inputExpression>
+      </semantic:input>
+      <semantic:output id="_df5f294c-47a5-4a4f-a507-429c51a7770f">
+        <semantic:outputValues triso:constraintsType="enumeration">
+          <semantic:text>"positive","negative"</semantic:text>
+        </semantic:outputValues>
+      </semantic:output>
+      <semantic:rule id="_02739e61-ea11-4412-a4a8-8b8b264369a3">
+        <semantic:inputEntry id="_f174c97a-7ae3-4f7e-a7da-23e9e738dd02">
+          <semantic:text>&gt;= 0</semantic:text>
+        </semantic:inputEntry>
+        <semantic:outputEntry id="_97a848c4-2013-434e-af04-835b8f73bd5c">
+          <semantic:text>"positive"</semantic:text>
+        </semantic:outputEntry>
+      </semantic:rule>
+      <semantic:rule id="_076fd568-e402-450e-8ee8-8f1d76694cfe">
+        <semantic:inputEntry id="_85ad9580-5e0f-4192-8ff6-6b9b4904c36a">
+          <semantic:text>&lt;0</semantic:text>
+        </semantic:inputEntry>
+        <semantic:outputEntry id="_7cefe2dd-4b6e-4f75-bbbe-f30a09b260e7">
+          <semantic:text>"negative"</semantic:text>
+        </semantic:outputEntry>
+      </semantic:rule>
+    </semantic:decisionTable>
+  </semantic:decision>
+  <semantic:decision id="_19afd8ae-9ccf-4e3d-b8ab-a42019b50441" name="which model">
+    <semantic:variable id="_d5ebd79d-6331-4fb4-ae57-d10630365015" name="which model" typeRef="tWhichModel"/>
+    <semantic:informationRequirement>
+      <semantic:requiredDecision href="#_5ccc3f7c-d602-4315-83b1-26ede8633fe4"/>
+    </semantic:informationRequirement>
+    <semantic:decisionTable hitPolicy="UNIQUE" id="_f037af17-3659-4743-83f4-e59fbe3c7bd6" outputLabel="which model">
+      <semantic:input id="_f0152636-b9a0-4292-b2fe-927b2cbe81df">
+        <semantic:inputExpression typeRef="feel:string">
+          <semantic:text>positive or negative</semantic:text>
+        </semantic:inputExpression>
+        <semantic:inputValues triso:constraintsType="enumeration">
+          <semantic:text>"positive","negative"</semantic:text>
+        </semantic:inputValues>
+      </semantic:input>
+      <semantic:output id="_b303c147-e618-45ae-807d-ac1e518b016c" name="ns" typeRef="feel:string"/>
+      <semantic:output id="_9bae60ac-6a6e-4f21-9ac4-cd1e5e353dd2" name="name" typeRef="feel:string"/>
+      <semantic:output id="_a1274083-940d-404e-80c3-bc7ee461d898" name="decision" typeRef="feel:string"/>
+      <semantic:rule id="_5386d003-2d0a-4cd9-a7ad-94fc881c29fb">
+        <semantic:inputEntry id="_db656545-8e2b-463d-a1ad-0dbf2f8bc571">
+          <semantic:text>"positive"</semantic:text>
+        </semantic:inputEntry>
+        <semantic:outputEntry id="_64d5391f-d323-4b6b-8dfd-8d90bd92b0fa">
+          <semantic:text>"http://www.trisotech.com/definitions/_acd5c1b8-74b7-41f6-aae7-52dc19b657cf"</semantic:text>
+        </semantic:outputEntry>
+        <semantic:outputEntry id="_9b1ea291-5b28-4026-9d33-a403aea071ae">
+          <semantic:text>"called P"</semantic:text>
+        </semantic:outputEntry>
+        <semantic:outputEntry id="_5aa76ffb-c5dd-4507-970d-68aed3b83e43">
+          <semantic:text>"subdecision result"</semantic:text>
+        </semantic:outputEntry>
+      </semantic:rule>
+      <semantic:rule id="_49589a44-30ce-450e-9e4c-0a8a91783e2f">
+        <semantic:inputEntry id="_e198860b-5f19-4800-873d-63778c2de39a">
+          <semantic:text>"negative"</semantic:text>
+        </semantic:inputEntry>
+        <semantic:outputEntry id="_09be4d97-f672-4d7d-ab57-181c633bf42e">
+          <semantic:text>"http://www.trisotech.com/definitions/_d37ce953-8d88-4132-ab5f-56ebe6f3bc58"</semantic:text>
+        </semantic:outputEntry>
+        <semantic:outputEntry id="_9b637ec5-ed47-466e-ba7c-dd1b9edd7f4f">
+          <semantic:text>"called N"</semantic:text>
+        </semantic:outputEntry>
+        <semantic:outputEntry id="_9bbbd1bd-2bc1-4bcb-beb4-59653668556b">
+          <semantic:text>"subdecision result"</semantic:text>
+        </semantic:outputEntry>
+      </semantic:rule>
+    </semantic:decisionTable>
+  </semantic:decision>
+  <semantic:decision id="_a418d431-c128-4d96-b49e-939c20f8b0f5" name="invoke external model">
+    <semantic:variable id="_0f26e163-bf68-4a3c-8f1c-48b566e9a2e2" name="invoke external model" typeRef="feel:string"/>
+    <semantic:informationRequirement>
+      <semantic:requiredDecision href="#_19afd8ae-9ccf-4e3d-b8ab-a42019b50441"/>
+    </semantic:informationRequirement>
+    <semantic:invocation id="_07952059-006f-47cc-b5dd-f271ecd8c91b">
+      <semantic:literalExpression id="literal__07952059-006f-47cc-b5dd-f271ecd8c91b">
+        <semantic:text>invoke</semantic:text>
+      </semantic:literalExpression>
+      <semantic:binding>
+        <semantic:parameter id="_71a25d5c-eb10-4c13-b7ad-76b75adfa875" name="namespace"/>
+        <semantic:literalExpression id="_edf3ee72-f1ae-4b51-9ad4-ebd1d1e1f7f1">
+          <semantic:text>which model.ns</semantic:text>
+        </semantic:literalExpression>
+      </semantic:binding>
+      <semantic:binding>
+        <semantic:parameter id="_be836819-d742-465f-8036-c0078886d5e7" name="model name"/>
+        <semantic:literalExpression id="_e8b7da72-5b2c-4b8f-9e9b-3604c0a4103e">
+          <semantic:text>which model.name</semantic:text>
+        </semantic:literalExpression>
+      </semantic:binding>
+      <semantic:binding>
+        <semantic:parameter id="_66d6f275-8211-44b6-a6d4-4b51afaa25a5" name="decision name"/>
+        <semantic:literalExpression id="_690d95f1-3c73-4c88-a578-b3d0a85277a5">
+          <semantic:text>which model.decision</semantic:text>
+        </semantic:literalExpression>
+      </semantic:binding>
+      <semantic:binding>
+        <semantic:parameter id="_98bc0108-ee2b-465f-b179-25cfec7bf7e3" name="parameters"/>
+        <semantic:literalExpression id="_b520b0d3-7319-4e0d-b24a-e21e689e3d2d">
+          <semantic:text>context()</semantic:text>
+        </semantic:literalExpression>
+      </semantic:binding>
+    </semantic:invocation>
+  </semantic:decision>
+</semantic:definitions>
